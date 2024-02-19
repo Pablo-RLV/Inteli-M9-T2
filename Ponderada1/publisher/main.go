@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
+	id := "sensor1"
 	opts := MQTT.NewClientOptions().AddBroker("tcp://broker:1891")
-	opts.SetClientID("publisher")
+	opts.SetClientID(id)
 
 	client := MQTT.NewClient(opts)
 	if token := client.Connect(); token.Wait() && token.Error() != nil {
@@ -20,6 +21,7 @@ func main() {
 
 	for {
 		data := map[string]interface{}{
+			"ID": id,
 			"CO_ppm": rand.Intn(1000),
 			"NO2_ppm": rand.Intn(10),
 			"NH3_ppm": rand.Intn(500),
