@@ -38,3 +38,7 @@ docker compose up
 Esse comando irá baixar as imagens necessárias, compilar os scripts em Go e lançar os contêineres de publisher, subscriber e do broker. Após a execução desse comando, será possível visualizar os dados sendo enviados pelo publisher e recebidos pelo subscriber.
 
 ## Demonstração
+
+O vídeo de demonstração da solução está disponível a seguir:
+
+https://github.com/Pablo-RLV/Inteli-M9-T2/assets/99209107/60ac462e-1a73-49a1-bca5-33d8441e66ff
