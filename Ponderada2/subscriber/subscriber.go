@@ -1,4 +1,4 @@
-package main
+package subscriber
 
 import (
 	"encoding/json"
@@ -30,7 +30,7 @@ func GetMessagePubHandler() MQTT.MessageHandler {
 	}
 }
 
-func main() {
+func Sub() {
 	opts := MQTT.NewClientOptions().AddBroker("tcp://localhost:1883")
 	opts.SetClientID("subscriber")
 	opts.SetDefaultPublishHandler(GetMessagePubHandler())
@@ -42,5 +42,5 @@ func main() {
 		fmt.Println(token.Error())
 		return
 	}
-	select {}
+	//select {}
 }

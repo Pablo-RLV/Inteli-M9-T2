@@ -1,4 +1,4 @@
-package main
+package publisher
 
 import (
 	"encoding/json"
@@ -20,7 +20,7 @@ func ConnectToMQTT(clientID string) MQTT.Client {
 }
 
 func PublishToBroker(client MQTT.Client, topic string, msg string) {
-	token := client.Publish(topic, 0, false, msg)
+	token := client.Publish(topic, 1, false, msg)
 	token.Wait()
 }
 
@@ -28,24 +28,24 @@ func TimeToPublish() {
 	time.Sleep(2 * time.Second)
 }
 
-func main() {
+func Pub() {
 	id := "sensor1"
 	client := ConnectToMQTT(id)
-	for {
-		data := map[string]interface{}{
-			"ID":  id,
-			"CO":  strconv.Itoa(rand.Intn(1000)) + " ppm",
-			"NO2": strconv.Itoa(rand.Intn(10)) + " ppm",
-			"NH3": strconv.Itoa(rand.Intn(500)) + " ppm",
-		}
-		jsonData, err := json.Marshal(data)
-		if err != nil {
-			fmt.Println("Error converting data to JSON", err)
-			return
-		}
-		msg := string(jsonData)
-		PublishToBroker(client, "/sensor", msg)
-		fmt.Println("Published:", msg)
-		TimeToPublish()
+	//for {
+	data := map[string]interface{}{
+		"ID":  id,
+		"CO":  strconv.Itoa(rand.Intn(1000)) + " ppm",
+		"NO2": strconv.Itoa(rand.Intn(10)) + " ppm",
+		"NH3": strconv.Itoa(rand.Intn(500)) + " ppm",
 	}
+	jsonData, err := json.Marshal(data)
+	if err != nil {
+		fmt.Println("Error converting data to JSON", err)
+		return
+	}
+	msg := string(jsonData)
+	PublishToBroker(client, "/sensor", msg)
+	fmt.Println("Published:", msg)
+	TimeToPublish()
+	//}
 }

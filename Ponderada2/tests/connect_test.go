@@ -1,12 +1,13 @@
-package main
+package publisher
 
 import (
 	"testing"
+	publisher "Ponderada2/publisher"
 )
 
 func TestConnectToMQTT(t *testing.T) {
 	clientID := "test_client"
-	client := ConnectToMQTT(clientID)
+	client := publisher.ConnectToMQTT(clientID)
 
 	if client == nil {
 		t.Errorf("Expected a valid MQTT client, but got nil")

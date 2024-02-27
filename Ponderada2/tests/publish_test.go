@@ -1,11 +1,12 @@
-package main
+package publisher
 
 import (
 	"testing"
+	publisher "Ponderada2/publisher"
 )
 
 func TestPublishToBroker(t *testing.T) {
-	client := ConnectToMQTT("test_client")
+	client := publisher.ConnectToMQTT("test_client")
 	topic := "test_topic"
 	msg := "test_message"
 	token := client.Publish(topic, 0, false, msg)
