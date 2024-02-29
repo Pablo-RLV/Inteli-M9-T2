@@ -28,16 +28,21 @@ func TimeToPublish() {
 	time.Sleep(2 * time.Second)
 }
 
-func Pub() {
-	id := "sensor1"
-	client := ConnectToMQTT(id)
-	//for {
+func MessageSender(clientID string) map[string]interface{} {
 	data := map[string]interface{}{
-		"ID":  id,
+		"ID":  clientID,
 		"CO":  strconv.Itoa(rand.Intn(1000)) + " ppm",
 		"NO2": strconv.Itoa(rand.Intn(10)) + " ppm",
 		"NH3": strconv.Itoa(rand.Intn(500)) + " ppm",
 	}
+	return data
+}
+
+func Pub() {
+	id := "sensor1"
+	client := ConnectToMQTT(id)
+	//for {
+	data := MessageSender(id)
 	jsonData, err := json.Marshal(data)
 	if err != nil {
 		fmt.Println("Error converting data to JSON", err)
