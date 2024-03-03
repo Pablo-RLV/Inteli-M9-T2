@@ -25,10 +25,11 @@ class Chamada():
         for combination in combinations:
             self.client_id = ''.join(combination)
             self.client_id = "clientId-" + self.client_id
+            self.publish()
             self.send_consecutive_times()
 
     def dropdown(self):
-        time.sleep(2)
+        time.sleep(3)
         self.driver.find_element(By.XPATH, "/html/body/div[2]/div[2]/div[3]").click()
     
     def send_consecutive_times(self):
@@ -37,7 +38,15 @@ class Chamada():
         self.wait.until(EC.presence_of_element_located((By.ID, "clientIdInput"))).clear()
         self.wait.until(EC.presence_of_element_located((By.ID, "clientIdInput"))).send_keys(self.client_id)
         self.wait.until(EC.element_to_be_clickable((By.ID, "connectButton"))).click()
-        time.sleep(2)
+        time.sleep(3)
+
+    def publish(self):
+        time.sleep(3)
+        self.wait.until(EC.presence_of_element_located((By.ID, "publishTopic"))).clear()
+        self.wait.until(EC.presence_of_element_located((By.ID, "publishTopic"))).send_keys("pablin")
+        self.wait.until(EC.presence_of_element_located((By.ID, "publishPayload"))).clear()
+        self.wait.until(EC.presence_of_element_located((By.ID, "publishPayload"))).send_keys(self.client_id)
+        self.wait.until(EC.element_to_be_clickable((By.ID, "publishButton"))).click()
 
 if __name__ == "__main__":
     chamada = Chamada()
