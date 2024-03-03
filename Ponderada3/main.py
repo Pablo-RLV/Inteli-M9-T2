@@ -18,7 +18,6 @@ class Chamada():
         self.wait.until(EC.presence_of_element_located((By.ID, "clientIdInput"))).clear()
         self.wait.until(EC.presence_of_element_located((By.ID, "clientIdInput"))).send_keys(self.client_id)
         self.wait.until(EC.element_to_be_clickable((By.ID, "connectButton"))).click()
-        time.sleep(2)
 
     def loop(self):
         digitos = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
