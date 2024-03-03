@@ -4,8 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	MQTT "github.com/eclipse/paho.mqtt.golang"
-	godotenv "github.com/joho/godotenv"
-	"os"
+	common "Ponderada4/common"
 )
 
 func GetMessagePubHandler() MQTT.MessageHandler {
@@ -33,18 +32,8 @@ func GetMessagePubHandler() MQTT.MessageHandler {
 }
 
 func ConnectToMQTT(clientID string) MQTT.Client {
-	err := godotenv.Load("../.env")
-	if err != nil {
-		fmt.Printf("Error loading .env file: %s", err)
-	}
-	var broker = os.Getenv("BROKER_ADDR")
-	var port = 8883
-
-	opts := MQTT.NewClientOptions()
-	opts.AddBroker(fmt.Sprintf("tls://%s:%d", broker, port))
-	opts.SetClientID(clientID)
-	opts.SetUsername(os.Getenv("HIVE_USER"))
-	opts.SetPassword(os.Getenv("HIVE_PSWD"))
+	common.LoadEnv()
+	opts := common.SetOptions(clientID)
 	opts.SetDefaultPublishHandler(GetMessagePubHandler())
 	client := MQTT.NewClient(opts)
 	if token := client.Connect(); token.Wait() && token.Error() != nil {

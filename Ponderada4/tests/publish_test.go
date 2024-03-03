@@ -1,4 +1,4 @@
-package publisher
+package tests
 
 import (
 	publisher "Ponderada4/publisher"
