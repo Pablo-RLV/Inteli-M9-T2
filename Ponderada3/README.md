@@ -44,4 +44,4 @@ Também foi possível perceber que o broker utilizado apresenta alta resistênci
 
 O vídeo de demonstração da solução está disponível a seguir:
 
-
+<https://github.com/Pablo-RLV/Inteli-M9-T2/assets/99209107/d2db7bbc-1ddb-4c3d-908a-a5e795ebb7ee>
