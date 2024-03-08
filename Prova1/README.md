@@ -1,5 +1,15 @@
 # Prova 1
 
+## Estrutura de pastas
+
+* O projeto consta com uma pasta main, que orquestra o funcionamento do projeto
+
+* O projeto consta com uma pasta tests, que contém os testes unitários
+
+* O projeto consta com uma pasta publisher, que contém o código que publica mensagens no broker
+
+* O projeto consta com uma pasta subscriber, que contém o código que se inscreve no broker
+
 ## Como rodar o projeto
 
 Para iniciar o broker, que foi escolhido como o hiveMQ no Docker, basta rodar o comando:
