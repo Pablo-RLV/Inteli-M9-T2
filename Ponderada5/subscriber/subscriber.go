@@ -29,17 +29,6 @@ var messagePubHandler MQTT.MessageHandler = func(client MQTT.Client, msg MQTT.Me
 	fmt.Printf("Received': %s from: %s, topic: %s \n", string(newJSON), idValue, msg.Topic())
 }
 
-// func ConnectToMQTT(clientID string) MQTT.Client {
-// 	common.LoadEnv()
-// 	opts := common.SetOptions(clientID)
-// 	opts.SetDefaultPublishHandler(messagePubHandler)
-// 	client := MQTT.NewClient(opts)
-// 	if token := client.Connect(); token.Wait() && token.Error() != nil {
-// 		panic(token.Error())
-// 	}
-// 	return client
-// }
-
 func Sub(id string) {
 	client := common.ConnectToMQTT(id, messagePubHandler)
 	if token := client.Connect(); token.Wait() && token.Error() != nil {
