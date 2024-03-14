@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	go publisher.Pub("sensor1")
+	go publisher.Pub("sensor3")
 	subscriber.Sub("subscriber")
 	select {}
 }
