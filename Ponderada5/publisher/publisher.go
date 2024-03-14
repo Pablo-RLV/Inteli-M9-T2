@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"time"
 	MQTT "github.com/eclipse/paho.mqtt.golang"
+	database "Ponderada5/database"
 )
 
 func PublishToBroker(client MQTT.Client, topic string, msg string) {
@@ -40,6 +41,7 @@ func Pub(id string) {
 		}
 		msg := string(jsonData)
 		PublishToBroker(client, "/sensor", msg)
+		database.PublishDatabase(data)
 		fmt.Println("Published:", msg)
 		TimeToPublish()
 	}
