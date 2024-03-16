@@ -97,3 +97,5 @@ Veja o banco de dados MongoDB Atlas, com os dados persistidos:
 ![MongoDB Atlas](static/mongodb.png)
 
 Em seguida, está apresentada a demonstração do funcionamento do projeto:
+
+[Screencast from 16-03-2024 13:52:10.webm](https://github.com/Pablo-RLV/Inteli-M9-T2/assets/99209107/c0097cd0-7053-4f7c-ab87-287329581d7e)
