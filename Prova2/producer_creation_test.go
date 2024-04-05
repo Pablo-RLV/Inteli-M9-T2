@@ -1,11 +1,11 @@
 package main
 
 import (
-	"testing"
 	"github.com/confluentinc/confluent-kafka-go/kafka"
+	"testing"
 )
 
-func TestProducerCreation(t *testing.T) {
+func TestStorage(t *testing.T) {
 	var bootstrap_servers = "localhost:29092,localhost:39092"
 	producer, err := kafka.NewProducer(&kafka.ConfigMap{
 		"bootstrap.servers": bootstrap_servers,
