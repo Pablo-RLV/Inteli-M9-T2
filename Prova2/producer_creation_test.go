@@ -11,11 +11,8 @@ func TestProducerCreation(t *testing.T) {
 		"bootstrap.servers": bootstrap_servers,
 		"client.id":         "go-producer",
 	})
-	print(err)
-	
 	if err != nil {
-		t.Fail()
-		// panic(err)
+		panic(err)
 	}
 	defer producer.Close()
 }
