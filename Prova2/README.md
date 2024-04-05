@@ -4,6 +4,22 @@
 
 Esse projeto apresenta a implementação local de um sistema de mensageria, que consiste em um servidor que recebe mensagens de um `producer`, armazena em uma fila e envia para um `consumer` que consome a mensagem. Para isso, foi utilizado a linguagem de programação Go, e o Kafka rodando de forma local para a implementação da fila.
 
+## Execução do sistema
+
+Para executar o sistema, é preciso rodar o docker-compose para subir o Kafka, e em seguida, executar o programa `main.go` que apresenta o servidor, o `producer` e o `consumer`.
+
+### Subindo o Kafka
+
+Para subir o Kafka, é preciso rodar o comando `docker-compose up` na raiz do projeto.
+
+### Executando o programa
+
+Para executar o programa, é preciso rodar o comando `go run main.go` na raiz do projeto.
+
+### Executando testes
+
+Para executar os testes, é preciso rodar o comando `go test` na raiz do projeto.
+
 ## Demonstrações
 
 Seção para demonstração em vídeo do funcionamento do sistema
